@@ -1,0 +1,12 @@
+name = "kite"
+type = "webpack"
+account_id = "700010139266569ab6020c99fe0af534"
+workers_dev = false
+route = "alpha.omnijar.science/*"
+zone_id = "93c1941d92154a4b642074fa31eba41b"
+
+[site]
+bucket = "../publish"
+
+[env.production]
+route = "omnijar.science/*"

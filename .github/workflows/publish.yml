@@ -1,0 +1,26 @@
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Choose an environment to deploy to: <development|staging|production>"
+        required: true
+        default: "development"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - name: Publish
+        uses: cloudflare/wrangler-action@1.3.0
+        env:
+          USER: root
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          workingDirectory: "publish"
