@@ -19,6 +19,18 @@ Alternatively, if you're a core contributor you can make changes using feature b
 ### Make your update:
 Make your changes to the file(s) you'd like to update. 
 
+### Testing Locally
+
+If you want to test locally (why wouldn't you?) then it's recommended to use the official [nginx](https://nginx.org) [Docker](htts://docker.com) image.
+
+```shell
+docker run --name "kite-nginx" -v $(pwd)/publish:/usr/share/nginx/html:ro -p 8080:80 -d nginx; docker rm "kite-nginx"
+```
+
+This shell command will download (if the image is not already downloaded) the latest `nginx` image, name an instance `kite-nginx`, attach the local volume (your current working directory (PWD) `publish` folder to the image's `/usr/share/nginx/html` folder in `read-only` mode (`ro`), and open up the local 8080 port to the image's port 80, with the container instance running as a non-interactive daemon (`-d`). After you've finished with this instance it'll remove it (`rm`) to ensure you're always working with a clean instance (this is not necessary).
+
+To access the web site locally you can simply visit `localhost:8080` in your browser of choice.
+
 ### Open a pull request
 When you're done making changes and you'd like to propose them for review, use the [pull request template](#pull-request-template) to open your PR (pull request).
 
