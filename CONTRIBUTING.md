@@ -43,3 +43,32 @@ When you're done making changes and you'd like to propose them for review, use t
 Congratulations! 
 
 Once your PR is merged, you will be proudly listed as a contributor in the [contributor chart](https://github.com/github/docs/graphs/contributors).
+
+## Appendix: Getting the Code
+
+For those wishing to get started as the first contribution to a collaborative project on [GitHub](https://github.com), the following is a step-by-step guide of how to begin.
+
+### SSH Keys
+
+SSH keys (or Secure SHell keys) are public and private key pairs used to access remote systems. The public key is to be shared with a remote machine (in this case we'll be sharing it with [GitHub](https://github.com)), and the private key we'll keep safely on our own machine (typically in `~/.ssh/` where `~` shortcuts the shell terminal to our home folder).
+
+You will need to ensure you have your [SSH key configured with GitHub](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account). 
+
+Once created and added to [GitHub](https://github.com) you'll need to add your private key to your system's keychain, e.g:
+
+```shell
+ssh-add ~/.ssh/id_rsa_gh
+```
+
+Where `id_rsa_gh` is the name of the private key generated for accessing GitHub. 
+
+
+### Cloning the Repository
+
+After you have guaranteed secure access to [GitHub](https://github.com) with your SSH key you can clone the project into a suitable folder:
+
+```shell
+git clone git@github.com:OmnijarScience/kite.git
+```
+
+Once you have the project locally you can make changes at will (see "Getting Started").
